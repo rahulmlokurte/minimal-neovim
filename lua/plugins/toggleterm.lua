@@ -15,7 +15,7 @@ return {
       shell = "pwsh",
       float_opts = {
         border = "curved",
-        winblend = 3,
+        winblend = 0,
         highlights = {
           border = "Normal",
           background = "Normal",
