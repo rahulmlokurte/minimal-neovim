@@ -2,14 +2,30 @@ return {
   {
     "mfussenegger/nvim-dap",
     keys = {
-    { "<leader>db",     ":lua require'dap'.toggle_breakpoint()<CR>", silent = true, desc = "Debug Toggle Breakpoint" },
-    { "<leader>dw",     ":lua require'dap.ui.widgets'.hover()<CR>", silent = true, desc = "Debug Widget Hover" },
-    { "<F5>",     ":lua require'dap'.continue()<CR>", silent = true, desc = "Debug Continue" },
-    { "<F8>",     ":lua require'dap'.step_over()<CR>", silent = true, desc = "Debug Step Over" },
-    { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
-    { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
-  },
-
+      { "<leader>db",     ":lua require'dap'.toggle_breakpoint()<CR>", silent = true, desc = "Debug Toggle Breakpoint" },
+      { "<leader>dw",     ":lua require'dap.ui.widgets'.hover()<CR>", silent = true, desc = "Debug Widget Hover" },
+      { "<leader>df",     ":lua require'dap.ui.widgets'.centered_float(require'dap.ui.widgets'.scopes)<CR>", silent = true, desc = "Debug Widget Scopes" },
+      { "<F5>",     ":lua require'dap'.continue()<CR>", silent = true, desc = "Debug Continue" },
+      { "<F8>",     ":lua require'dap'.step_over()<CR>", silent = true, desc = "Debug Step Over" },
+      { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
+      { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
+    },
+    config = function ()
+      local dap = require('dap')
+      dap.configurations.java = {
+        {
+          type = 'java',
+          name = 'localprofile',
+          request = 'launch',
+        },
+        {
+          type = 'java',
+          name = 'integrationprofile',
+          request = 'launch',
+          vmArgs = '-Dspring.profiles.active=Integration'
+        },
+      }
+    end
   },
   {
     "rcarriga/nvim-dap-ui",
