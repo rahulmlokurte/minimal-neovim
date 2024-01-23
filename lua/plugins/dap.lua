@@ -1,0 +1,55 @@
+return {
+  {
+    "mfussenegger/nvim-dap",
+    keys = {
+    { "<leader>db",     ":lua require'dap'.toggle_breakpoint()<CR>", silent = true, desc = "Debug Toggle Breakpoint" },
+    { "<leader>dw",     ":lua require'dap.ui.widgets'.hover()<CR>", silent = true, desc = "Debug Widget Hover" },
+    { "<F5>",     ":lua require'dap'.continue()<CR>", silent = true, desc = "Debug Continue" },
+    { "<F8>",     ":lua require'dap'.step_over()<CR>", silent = true, desc = "Debug Step Over" },
+    { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
+    { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
+  },
+
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    },
+    config = function ()
+      local dap, dapui = require("dap"), require("dapui")
+      dapui.setup({})
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited.dapui_config = function()
+        dapui.close()
+      end
+    end
+  },
+  {
+    "folke/neodev.nvim",
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    },
+    config = function ()
+      require("neodev").setup({
+        library = { plugins = { "nvim-dap-ui" }, types = true }
+      })
+    end
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function ()
+      require("nvim-dap-virtual-text").setup()
+    end
+
+  }
+
+}
