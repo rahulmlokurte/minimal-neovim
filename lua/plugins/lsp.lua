@@ -36,7 +36,7 @@ return {
       })
 
       lspconfig.gopls.setup({
-        capabilities = lsp_capabilities,
+      capabilities = lsp_capabilities,
       })
     end
   },

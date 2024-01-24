@@ -9,6 +9,7 @@ return {
       { "<F8>",     ":lua require'dap'.step_over()<CR>", silent = true, desc = "Debug Step Over" },
       { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
       { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
+      { "<leader>dt",     ":lua require'dapui'.toggle()<CR>", silent = true, desc = "Dap Ui toggle" },
     },
     config = function ()
       local dap = require('dap')
