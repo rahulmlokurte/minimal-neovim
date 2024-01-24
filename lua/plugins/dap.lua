@@ -15,14 +15,30 @@ return {
       dap.configurations.java = {
         {
           type = 'java',
-          name = 'localprofile',
+          name = 'Integration',
           request = 'launch',
+          main = '',
+          console = 'integratedTerminal',
+          args = "${command:SpecifyProgramArgs}",
+          vmArgs = "-Dspring.profiles.active=integration"
         },
         {
           type = 'java',
-          name = 'integrationprofile',
+          name = 'local',
           request = 'launch',
-          vmArgs = '-Dspring.profiles.active=Integration'
+          main = '',
+          console = 'integratedTerminal',
+          args = "${command:SpecifyProgramArgs}",
+          vmArgs = "-Dspring.profiles.active=local"
+        },
+        {
+          type = 'java',
+          name = 'test',
+          request = 'launch',
+          main = '',
+          console = 'integratedTerminal',
+          args = "${command:SpecifyProgramArgs}",
+          vmArgs = "-Dspring.profiles.active=test"
         },
       }
     end
