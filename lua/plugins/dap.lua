@@ -53,7 +53,35 @@ return {
     },
     config = function ()
       local dap, dapui = require("dap"), require("dapui")
-      dapui.setup({})
+      dapui.setup({
+        layouts = { {
+          elements = { {
+            id = "scopes",
+            size = 0.25
+          }, {
+              id = "breakpoints",
+              size = 0.25
+            }, {
+              id = "stacks",
+              size = 0.25
+            }, {
+              id = "watches",
+              size = 0.25
+            } },
+          position = "left",
+          size = 40
+        }, {
+            elements = { {
+              id = "repl",
+              size = 1
+            }, {
+                id = "console",
+                size = 0.0
+              } },
+            position = "bottom",
+            size = 5
+          } }
+      })
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -66,17 +94,7 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
-    end
-  },
-  {
-    "folke/neodev.nvim",
-    dependencies = {
-      "mfussenegger/nvim-dap"
-    },
-    config = function ()
-      require("neodev").setup({
-        library = { plugins = { "nvim-dap-ui" }, types = true }
-      })
+
     end
   },
   {
@@ -84,7 +102,6 @@ return {
     config = function ()
       require("nvim-dap-virtual-text").setup()
     end
-
   }
 
 }
