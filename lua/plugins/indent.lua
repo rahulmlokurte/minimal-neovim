@@ -1,13 +1,9 @@
 return {
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {},
+    "echasnovski/mini.indentscope",
+    version = "*",
     config = function ()
-      require("ibl").setup({
-        whitespace = { highlight = { "Whitespace", "NonText" } },
-        debounce = 100
-      })
+      require('mini.indentscope').setup()
     end
   }
 }
