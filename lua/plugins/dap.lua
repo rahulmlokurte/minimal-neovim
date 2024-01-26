@@ -10,6 +10,8 @@ return {
       { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
       { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
       { "<leader>dt",     ":lua require'dapui'.toggle()<CR>", silent = true, desc = "Dap Ui toggle" },
+      { "<leader>dr",     ":lua require'dapui'.float_element('repl', {'enter'})<CR>", silent = true, desc = "Dap Ui repl" },
+      vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
     },
     config = function ()
       local dap = require('dap')
@@ -19,7 +21,7 @@ return {
           name = 'Integration',
           request = 'launch',
           main = '',
-          console = 'integratedTerminal',
+          console = 'internalConsole',
           args = "${command:SpecifyProgramArgs}",
           vmArgs = "-Dspring.profiles.active=integration"
         },
@@ -28,7 +30,7 @@ return {
           name = 'local',
           request = 'launch',
           main = '',
-          console = 'integratedTerminal',
+          console = 'internalConsole',
           args = "${command:SpecifyProgramArgs}",
           vmArgs = "-Dspring.profiles.active=local"
         },
@@ -37,7 +39,7 @@ return {
           name = 'test',
           request = 'launch',
           main = '',
-          console = 'integratedTerminal',
+          console = 'internalConsole',
           args = "${command:SpecifyProgramArgs}",
           vmArgs = "-Dspring.profiles.active=test"
         },
