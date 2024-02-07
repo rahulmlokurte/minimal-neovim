@@ -18,7 +18,7 @@ return {
     dependencies = {"williamboman/mason.nvim"},
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "jdtls" }
+        ensure_installed = { "lua_ls", "gopls", "jdtls", "pyright" }
       })
     end
   },
@@ -37,6 +37,9 @@ return {
 
       lspconfig.gopls.setup({
       capabilities = lsp_capabilities,
+      })
+      lspconfig.pyright.setup({
+        capabilities = lsp_capabilities
       })
     end
   },

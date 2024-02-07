@@ -56,3 +56,8 @@ vim.keymap.set("n", "<C-h>", "<C-w>h") -- Left
 vim.keymap.set("n", "<C-j>", "<C-w>j") -- Down
 vim.keymap.set("n", "<C-k>", "<C-w>k") -- Up
 vim.keymap.set("n", "<C-l>", "<C-w>l") -- Right
+
+-- Resize
+
+vim.keymap.set("n", "<C-up>", "1<C-w>+") -- Increase vertical
+vim.keymap.set("n", "<C-down>", "1<C-w>-") -- Decrease vertical
