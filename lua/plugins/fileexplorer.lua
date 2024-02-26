@@ -51,7 +51,7 @@ return {
       },
       window = {
         position = "float",
-        width = 35,
+        width = 80,
       },
       filesystem = {
         use_libuv_file_watcher = true,

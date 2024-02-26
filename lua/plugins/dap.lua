@@ -11,7 +11,8 @@ return {
       { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
       { "<leader>dt",     ":lua require'dapui'.toggle()<CR>", silent = true, desc = "Dap Ui toggle" },
       { "<leader>dr",     ":lua require'dapui'.float_element('repl', {'enter'})<CR>", silent = true, desc = "Dap Ui repl" },
-      vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+      vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end),
+      vim.keymap.set('n', '<Leader>drc', function() require('dap').repl.clear() end)
     },
     config = function ()
       local dap = require('dap')

@@ -21,7 +21,7 @@ return {
           left_trunc_marker = '',
           right_trunc_marker = '',
           diagnostics = "nvim_lsp",
-          separator_style = "slant", 
+          separator_style = "slant",
           indicator = {
             style = "underline"
           },
