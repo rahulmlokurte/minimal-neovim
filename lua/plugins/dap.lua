@@ -9,13 +9,16 @@ return {
       { "<F8>",     ":lua require'dap'.step_over()<CR>", silent = true, desc = "Debug Step Over" },
       { "<F7>",     ":lua require'dap'.step_into()<CR>", silent = true, desc = "Debug Step Into" },
       { "<S-F8>",     ":lua require'dap'.step_out()<CR>", silent = true, desc = "Debug Step Out" },
-      { "<leader>dt",     ":lua require'dapui'.toggle()<CR>", silent = true, desc = "Dap Ui toggle" },
-      { "<leader>dr",     ":lua require'dapui'.float_element('repl', {'enter'})<CR>", silent = true, desc = "Dap Ui repl" },
-      vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end),
-      vim.keymap.set('n', '<Leader>drc', function() require('dap').repl.clear() end)
+      { "<leader>dt",     ":lua require'dapui'.toggle()<CR>", silent = true, desc = "Toggle Dapui" },
+      { "<leader>dr",     ":lua require'dapui'.float_element('repl', {'enter'})<CR>", silent = true, desc = "Float Dapui Repl" },
+      {"<leader>drc", ":lua require'dap'.repl.clear()", silent = true, desc = "Clear Dapui Repl"},
     },
     config = function ()
       local dap = require('dap')
+      local wk = require("which-key")
+      wk.register({
+        ["<leader>d"] = { name = "+Dap Ui"}
+      })
       dap.configurations.java = {
         {
           type = 'java',

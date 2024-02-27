@@ -24,11 +24,13 @@ return {
     telescope.load_extension('dap')
     telescope.load_extension('ui-select')
     telescope.load_extension('noice')
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>f"] = { name = "+file"},
+      ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find Files"},
+      ["<leader>fg"] = { "<cmd>Telescope live_grep<cr>", "Live Grep"},
+      ["<leader>fb"] = { "<cmd>Telescope buffers<cr>", "Find in Buffers"},
+      ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help Tags"},
+    })
   end
 }
