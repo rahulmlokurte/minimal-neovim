@@ -1,13 +1,12 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "sainnhe/sonokai",
     priority = 1000,
     config = function ()
-      require("catppuccin").setup({
-
-      })
-      vim.cmd.colorscheme "catppuccin"
+      vim.g.sonokai_transparent_background = "1"
+      vim.g.sonokai_enable_italic = "1"
+      vim.g.sonokai_style = "andromeda"
+      vim.cmd.colorscheme("sonokai")
     end
   }
 }
