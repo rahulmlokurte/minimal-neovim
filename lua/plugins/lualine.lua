@@ -8,7 +8,7 @@ return {
   config = function()
     require("lualine").setup({
       option = {
-        theme = "sonokai"
+        theme = "tokyonight"
       }
     })
   end

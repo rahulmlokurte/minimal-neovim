@@ -1,12 +1,17 @@
 return {
   {
-    "sainnhe/sonokai",
+    "folke/tokyonight.nvim",
+    lazy = false,
     priority = 1000,
     config = function ()
-      vim.g.sonokai_transparent_background = "1"
-      vim.g.sonokai_enable_italic = "1"
-      vim.g.sonokai_style = "andromeda"
-      vim.cmd.colorscheme("sonokai")
+      require("tokyonight").setup({
+        style = "moon",
+        on_colors = function (colors)
+          colors.hint = colors.orange
+          colors.error = "#ff0000"
+        end
+      })
+      vim.cmd[[colorscheme tokyonight]]
     end
   }
 }
