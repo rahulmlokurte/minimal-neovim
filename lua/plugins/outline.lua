@@ -6,6 +6,11 @@ return {
     { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
   },
   config = function ()
-    require("outline").setup({})
+    require("outline").setup({
+      outline_window = {
+        position = "left",
+        auto_jump = true,
+      }
+    })
   end
 }
