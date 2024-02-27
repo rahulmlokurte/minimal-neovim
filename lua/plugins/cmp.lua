@@ -26,7 +26,10 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 local select_opts = {behavior = cmp.SelectBehavior.Select}
-
+vim.api.nvim_set_hl(0, "MyPmenuSel", { bg = "#45b5aa", fg = "Black", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbr", { bg = "NONE", fg = "#aaafff", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#fdff00", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { bg = "NONE", fg = "#ec5300", bold = true, italic = true })
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -40,6 +43,10 @@ cmp.setup({
     {name = 'luasnip', keyword_length = 2},
   },
   window = {
+    completion = cmp.config.window.bordered({
+        border = "double",
+          winhighlight = "CursorLine:MyPmenuSel,Search:None",
+        }),
     documentation = cmp.config.window.bordered()
   },
   formatting = {
