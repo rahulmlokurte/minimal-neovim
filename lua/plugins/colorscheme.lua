@@ -1,17 +1,12 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
     lazy = false,
+    name = "catppuccin",
     priority = 1000,
     config = function ()
-      require("tokyonight").setup({
-        style = "moon",
-        on_colors = function (colors)
-          colors.hint = colors.orange
-          colors.error = "#ff0000"
-        end
-      })
-      vim.cmd[[colorscheme tokyonight]]
+      require("catppuccin").setup({})
+      vim.cmd.colorscheme "catppuccin"
     end
   }
 }
