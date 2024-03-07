@@ -26,6 +26,7 @@ return {
           indicator = {
             style = "underline"
           },
+          highlights = require("catppuccin.groups.integrations.bufferline").get()
         }
       }
     end

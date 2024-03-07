@@ -69,6 +69,11 @@ local config = {
       },
     }
   },
+  handlers = {
+    ["$/progress"] = function(_, result, ctx)
+                    -- disable progress updates.
+    end,
+  },
   init_options = {
     extendedClientCapabilities = jdtls.extendedClientCapabilities,
     bundles = bundles,
