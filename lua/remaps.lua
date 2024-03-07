@@ -31,7 +31,7 @@ vim.opt.updatetime = 100                        -- faster completion (4000ms def
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.cursorline = false                      -- highlight the current line
+vim.opt.cursorline = true                      -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.breakindent = true                      -- wrap lines with indent
 vim.opt.relativenumber = true                   -- set relative numbered lines
@@ -61,3 +61,4 @@ vim.keymap.set("n", "<C-l>", "<C-w>l") -- Right
 
 vim.keymap.set("n", "<C-up>", "1<C-w>+") -- Increase vertical
 vim.keymap.set("n", "<C-down>", "1<C-w>-") -- Decrease vertical
+vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")

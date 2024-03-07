@@ -4,6 +4,9 @@ return {
   opts = {
 
   },
+  keys = {
+    {"<leader>nd", "<cmd>Noice dismiss<cr>", desc = "Noice dismiss"}
+  },
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",

@@ -6,6 +6,7 @@ return {
     keys = {
       { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
       { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      {"<S-S>", "<cmd>BufferLinePick<cr>", desc = "Pick buffer"}
     },
     config = function()
       vim.opt.termguicolors = true
