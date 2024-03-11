@@ -61,4 +61,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l") -- Right
 
 vim.keymap.set("n", "<C-up>", "1<C-w>+") -- Increase vertical
 vim.keymap.set("n", "<C-down>", "1<C-w>-") -- Decrease vertical
+vim.keymap.set("n", "<C-left>", "1<C-w><") -- Left horizontal
+vim.keymap.set("n", "<C-right>", "1<C-w>>") -- Right horizontal
 vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")
