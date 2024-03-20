@@ -31,12 +31,13 @@ vim.opt.updatetime = 100                        -- faster completion (4000ms def
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-vim.opt.cursorline = true                      -- highlight the current line
+vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.breakindent = true                      -- wrap lines with indent
 vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn =
+"yes"                                           -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                            -- display lines as one long line
 vim.opt.scrolloff = 8                           -- Makes sure there are always eight lines of context
 vim.opt.sidescrolloff = 8                       -- Makes sure there are always eight lines of context
@@ -59,8 +60,8 @@ vim.keymap.set("n", "<C-l>", "<C-w>l") -- Right
 
 -- Resize
 
-vim.keymap.set("n", "<C-up>", "1<C-w>+") -- Increase vertical
-vim.keymap.set("n", "<C-down>", "1<C-w>-") -- Decrease vertical
-vim.keymap.set("n", "<C-left>", "1<C-w><") -- Left horizontal
-vim.keymap.set("n", "<C-right>", "1<C-w>>") -- Right horizontal
+vim.keymap.set("n", "<C-up>", "1<C-w>+")    -- Increase vertical
+vim.keymap.set("n", "<C-down>", "1<C-w>-")  -- Decrease vertical
+vim.keymap.set("n", "<C-left>", "1<C-w><")  -- Left horizontal
+vim.keymap.set("n", "<C-right>", "1<C-w>>") -- Left horizontal
 vim.keymap.set('n', '<space><space>', "<cmd>set nohlsearch<CR>")

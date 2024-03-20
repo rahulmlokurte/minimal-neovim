@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function()
     local bufmap = function(mode, lhs, rhs)
-      local opts = {buffer = true}
+      local opts = { buffer = true }
       vim.keymap.set(mode, lhs, rhs, opts)
     end
     -- Displays hover information about the symbol under the cursor
@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-    -- Lists all the references 
+    -- Lists all the references
     bufmap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>')
 
     -- Displays a function's signature information
@@ -51,29 +51,34 @@ local sign = function(opts)
   })
 end
 
-sign({name = 'DiagnosticSignError', text = '✘'})
-sign({name = 'DiagnosticSignWarn', text = '▲'})
-sign({name = 'DiagnosticSignHint', text = '⚑'})
-sign({name = 'DiagnosticSignInfo', text = '»'})
-sign({name = 'DapBreakpoint', text = '🐞'})
+sign({ name = 'DiagnosticSignError', text = '✘' })
+sign({ name = 'DiagnosticSignWarn', text = '▲' })
+sign({ name = 'DiagnosticSignHint', text = '⚑' })
+sign({ name = 'DiagnosticSignInfo', text = '»' })
+sign({ name = 'DapBreakpoint', text = '🐞' })
 
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
   float = {
-    border = 'rounded',
     source = 'always',
   },
 })
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    -- Disable virtual_text
+    virtual_text = false
+  }
+)
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
-  {border = 'rounded'}
+  { border = 'rounded' }
 )
 
 vim.api.nvim_create_autocmd('TextYankPost', {
