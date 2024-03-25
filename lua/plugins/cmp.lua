@@ -17,12 +17,19 @@ return {
     -- Adds vscode-like pictograms
     "onsails/lspkind.nvim",
   },
+
   config = function()
     vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
     require('luasnip.loaders.from_vscode').lazy_load()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local select_opts = { behavior = cmp.SelectBehavior.Select }
+    vim.api.nvim_set_hl(0, "MyPmenuSel", { bg = "#a6e3a1", fg = "Black", bold = true, italic = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbr", { bg = "NONE", fg = "#cdd6f4", bold = true, italic = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#fab387", bold = true, italic = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { bg = "NONE", fg = "#cba6f7", bold = true, italic = true })
+    vim.api.nvim_set_hl(0, "MyFloatBorder", { bg = "NONE", fg = "#f38ba8", bold = true, italic = true })
+    vim.api.nvim_set_hl(0, "MyPmenu", { bg = "NONE", fg = "#b4befe", bold = true, italic = true })
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -34,6 +41,16 @@ return {
         { name = 'nvim_lsp', keyword_length = 1 },
         { name = 'buffer',   keyword_length = 3 },
         { name = 'luasnip',  keyword_length = 2 },
+      },
+      window = {
+        completion = cmp.config.window.bordered(
+          {
+            winhighlight = "Normal:MyPmenu,FloatBorder:MyFloatBorder,CursorLine:MyPmenuSel,Search:None",
+          }
+        ),
+        documentation = cmp.config.window.bordered({
+          winhighlight = "Normal:MyPmenu,FloatBorder:MyFloatBorder,CursorLine:MyPmenuSel,Search:None",
+        })
       },
       formatting = {
         fields = { 'menu', 'abbr', 'kind' },
