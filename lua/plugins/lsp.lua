@@ -18,7 +18,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "jdtls", "pyright", "marksman" }
+        ensure_installed = { "lua_ls", "gopls", "jdtls", "pyright", "marksman", "tsserver", "tailwindcss" }
       })
     end
   },
@@ -47,6 +47,12 @@ return {
         capabilities = lsp_capabilities,
       })
       lspconfig.pyright.setup({
+        capabilities = lsp_capabilities
+      })
+      lspconfig.tsserver.setup({
+        capabilities = lsp_capabilities
+      })
+      lspconfig.tailwindcss.setup({
         capabilities = lsp_capabilities
       })
     end

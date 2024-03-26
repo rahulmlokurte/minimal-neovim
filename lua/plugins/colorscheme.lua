@@ -10,7 +10,7 @@ return {
             base = "#000000",
             mantle = "#000000",
             crust = "#000000",
-          },
+          }
         },
         integrations = {
           cmp = true,
