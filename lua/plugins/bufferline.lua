@@ -14,13 +14,10 @@ return {
           styles = { "italic", "bold" },
           custom = {
             all = {
-              fill = { bg = "#000000" },
+              fill = { bg = "#1e1e2e" },
             },
             mocha = {
               background = { fg = mocha.text },
-            },
-            latte = {
-              background = { fg = "#000000" },
             },
           },
         }
