@@ -55,6 +55,9 @@ return {
       lspconfig.tailwindcss.setup({
         capabilities = lsp_capabilities
       })
+      lspconfig.html.setup({
+        capabilities = lsp_capabilities
+      })
     end
   },
 }
